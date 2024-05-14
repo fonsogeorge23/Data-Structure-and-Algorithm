@@ -20,8 +20,9 @@ class Solution{
 		/*
 			1) Brute force: Take each element and iterate to every other element to check the sum is equal to target
 							TC: O(n2)	SC: O(1)
-			2) Optimized with HashMap: Add each element to HashMap, with index, if target - element not present in the hashmap, 
-				if present return the current index with the stored index		
+			2) Optimized with Hashmap: Add each element to HashMap, with index, if target - element not present in the hashmap, 
+				if present return the current index with the stored index	
+							TC: o(n) 	SC: O(n)
 		*/
 		int n = nums.length;
 		Hashmap<Integer, Integer> map = new Hashmap<>();
