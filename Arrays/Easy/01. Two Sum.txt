@@ -23,6 +23,10 @@ class Solution{
 			2) Optimized with Hashmap: Add each element to HashMap, with index, if target - element not present in the hashmap, 
 				if present return the current index with the stored index	
 							TC: o(n) 	SC: O(n)
+							
+			3) Optimized without Hashmap: (Two pointer method);
+				Fixing the root index i = 1, calculate the sum of element in different index, j = (i -> n)
+					TC: O(n); SC: O(1)
 		*/
 		int n = nums.length;
 		Hashmap<Integer, Integer> map = new Hashmap<>();
@@ -36,5 +40,19 @@ class Solution{
 		
 		// if not present
 		return new int[]{};
+	}
+}
+------------------------------------------------------------------------
+class Solution{
+	public int[] twoSum(int[] nums, int target){
+		int n = nums.length;
+		for(int i = 1; i < n; i++){
+			for(int j = i; j < n; j++){
+				if(nums[j] + nums[j-i] == target){
+					return new int[]{j, j-i};
+				}
+			}
+		}
+		return null;
 	}
 }
