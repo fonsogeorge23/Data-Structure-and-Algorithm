@@ -36,6 +36,13 @@ public int maxArea (int[] height){
 		int currArea = distance * minHeight;
 		maxArea = Math.max(maxArea, currArea);
 		
+		// simple implementation
+		// if(height[left] < height[right])
+		//     left++;
+		// else
+		//     right--;
+		
+		// faster implementation
 		while(left < right && height[left] <= minHeight) left++;
 		while(left < right && height[right] <= minHeight) right--;
 	}
