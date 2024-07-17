@@ -1,0 +1,13 @@
+========================
+B A C K T R A C K I N G 
+========================
+Backtracking is an algorithmic technique for solving problems recursively by trying to build a solution incrementally, removing solutions that fail to satisfy the problem’s constraints at any point in time (by backtracking and trying another path).
+
+How Backtracking Works:
+★ Choice: At each step, make a choice that seems to lead toward a solution.
+★ Constraint: If the choice leads to a violation of the problem constraints, backtrack and try another choice.
+★ Goal: If the choice leads to a solution, mark it and proceed to the next step.
+
+Example: Solving the N-Queens Problem
+The N-Queens problem is a classic example of backtracking. The problem is to place N queens on an 
+𝑁 × 𝑁 chessboard such that no two queens threaten each other. This means no two queens can be in the same row, column, or diagonal.
