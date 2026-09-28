@@ -1,0 +1,44 @@
+11. Container with most water
+=============================
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+Find two lines that together with the x-axis form a container, such that the container contains the most water.
+
+Return the maximum amount of water a container can store.
+
+Notice that you may not slant the container.
+
+Example 1: 
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water is in the container from index = 1 -> 8 which is 49.
+
+Example 2: 
+Input: height = [1,1]
+Output: 1
+Explanation: The maximum capacity is 1.
+
+Intuition and Hints:
+--------------------
+1. We start with the widest containing bars : index 0 and n-1;
+2. For each pair of index we calculate the minimum height among the 2 bars and get the product with width
+3. We keep the bigger height for next computation and move the min. height index inwards.
+
+Solution:
+public int maxArea (int[] height){
+	int n = height.length;
+	int maxCapacity = 0;
+	
+	int i = 0, j = n - 1;
+	while(i < j){
+		int distance = j - i;
+		int minHeight = Math.min(height[j], height[i]);
+		int currCapacity = minHeight * distance;
+		maxCapacity = Math.max(currCapacity, maxCapacity);
+		
+		while(i < j && height[i] <= minHeight) i++;
+		while(i < j && height[j] <= minHeight) j--;
+	}
+	
+	return maxCapacity;
+}
